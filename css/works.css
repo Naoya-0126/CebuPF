@@ -1,0 +1,351 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+}
+
+header{
+    height: 150px;
+    /* background-color: beige; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    font-family: cursive;
+    font-size: 120px;
+    font-weight: 10;
+}
+
+/* ハンバーガーメニュー */
+#nav-list{
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+	top:-120%;
+    left:0;
+	width:100%;
+    height: 100vh;/*ナビの高さ*/
+	background:grey;
+    /*動き*/
+	transition: all 0.6s;
+}
+
+#nav-list.panelactive{
+    top: 0;
+    position: fixed;
+    z-index: 999; 
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.list{
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.list>li{
+    list-style: none;
+    text-align: center;
+}
+
+.list>li>a{
+    color: white;
+	text-decoration: none;
+	padding:10px;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+    font-family: cursive;
+    font-size: 30px;
+}
+
+.hamburger{
+    position:fixed;
+    z-index: 9999;/*ボタンを最前面に*/
+	top:40px;
+	right: 40px;
+	cursor: pointer;
+    width: 70px;
+    height:70px;
+}
+
+.hamburger>span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+	background-color: black;
+  	width: 45%;
+}
+
+.hamburger span:nth-of-type(1) {
+	top:15px;	
+}
+
+.hamburger span:nth-of-type(2) {
+	top:23px;
+}
+
+.hamburger span:nth-of-type(3) {
+	top:31px;
+}
+
+.hamburger.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.hamburger.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.hamburger.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+}
+
+.appeal{
+    height: 500px;
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    background-color: white;
+    border: 15px grey groove;
+}
+
+.intr,.skills{
+    /* border: 1px black solid; */
+}
+
+.intr{
+    width: 30%;
+    margin: auto 0;
+    /* border: 1px black solid; */
+}
+
+.intr-text{
+    /* border-bottom: 1px black solid; */
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intr-text>h1{
+    font-family: cursive;
+    font-size: 80px;
+    font-weight: 50;
+}
+
+.icon{
+    height: 150px;
+    width: 150px;
+    background-image: url(../img/bohol/bohol7.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    border: 1px black solid;
+    margin: 0 auto;
+}
+
+
+.skills{
+    width: 70%;
+}
+
+.lang-over,.lang-bottom{
+    height: 45%;
+    /* border: 1px black solid; */
+    display: flex;
+    justify-content: space-around;
+}
+
+#lang{
+    /* border: 1px black solid; */
+    height: 100%;
+    width: 33%;
+    margin-top: 20px;
+}
+
+.lang-icon{
+    height: 80%;
+    /* border: 1px black solid; */
+}
+
+.html>.lang-icon{
+    background-image: url(../img/lang-icon/HTML-logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.html>.lang-icon{
+    background-image: url(../img/lang-icon/HTML-logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.css>.lang-icon{
+    background-image: url(../img/lang-icon/CSS-logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.js>.lang-icon{
+    background-image: url(../img/lang-icon/JS-logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.jq>.lang-icon{
+    background-image: url(../img/lang-icon/Jquery.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.php>.lang-icon{
+    background-image: url(../img/lang-icon/PHP-logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.lara>.lang-icon{
+    background-image: url(../img/lang-icon/Laravel-icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.grade{
+    height: 20%;
+    /* border: 1px black solid; */
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.lms{
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.lms>a{
+    font-size: 10px;
+}
+
+/* .work{
+    background-color: blueviolet;
+} */
+
+.item{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.item>a>.file{
+    height: 500px;
+    width: 100%;
+    background-image: url(../img/cebu/cebu-works.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.used-lang{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+}
+
+.feedback{
+    width: 60%;
+    margin: 20px auto 30px;
+    background-color: lightgray;
+    border: 0.5px black solid;
+}
+
+.feedback>h1,li{
+    margin:0 10px 10px;
+}
+
+li>span{
+    background-color: pink;
+}
+
+.item>a>.file2{
+    height: 500px;
+    width: 100%;
+    background-image: url(../img/cebu/cebu-works2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.item>h1{
+    margin: 0 auto;
+}
+
+hr{
+    border-top: 1px solid #8c8b8b;
+	border-bottom: 1px solid #fff;
+}
+
+
+footer{
+    height: 80px;
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-top{
+    text-decoration: none;
+    color: white;
+}
+
+.copy{
+    color: white;
+}

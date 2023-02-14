@@ -1,0 +1,280 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+}
+
+header{
+    height: 150px;
+    /* background-color: beige; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    font-family: cursive;
+    font-size: 120px;
+    font-weight: 10;
+}
+
+/* ハンバーガーメニュー */
+#nav-list{
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+	top:-120%;
+    left:0;
+	width:100%;
+    height: 100vh;/*ナビの高さ*/
+	background:grey;
+    /*動き*/
+	transition: all 0.6s;
+}
+
+#nav-list.panelactive{
+    top: 0;
+    position: fixed;
+    z-index: 999; 
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.list{
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.list>li{
+    list-style: none;
+    text-align: center;
+}
+
+.list>li>a{
+    color: white;
+	text-decoration: none;
+	padding:10px;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+    font-family: cursive;
+    font-size: 30px;
+}
+
+.hamburger{
+    position:fixed;
+    z-index: 9999;/*ボタンを最前面に*/
+	top:40px;
+	right: 40px;
+	cursor: pointer;
+    width: 70px;
+    height:70px;
+}
+
+.hamburger>span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+	background-color: black;
+  	width: 45%;
+}
+
+.hamburger span:nth-of-type(1) {
+	top:15px;	
+}
+
+.hamburger span:nth-of-type(2) {
+	top:23px;
+}
+
+.hamburger span:nth-of-type(3) {
+	top:31px;
+}
+
+.hamburger.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.hamburger.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.hamburger.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+main{
+    width: 100%;
+}
+
+section{
+    height: 700px;
+    width: 80%;
+    margin: 100px auto;
+    display: flex;
+}
+
+
+.box {
+    /* 最初は非表示 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: opacity 1s, visibility 1s, transform 1s;
+}
+  /* フェードイン時に入るクラス */
+.is-fadein {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+#text{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#picture{
+    height: 100%;
+    width: 70%;
+}
+
+.character{
+    height: 50%;
+    width: 100%;
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.character>h1{
+    font-family: cursive;
+    font-size: 70px;
+    margin: 0 auto;
+    color: #696969;
+}
+
+/* .text-left{
+    border-right: 1px black solid;
+}
+
+.text-right{
+    border-left: 1px black solid;
+} */
+
+/* img{
+    width: 100%;
+	height: 100%;
+	vertical-align: bottom;
+} */
+
+.gallery{
+	margin:0 0 5px 0;
+    height: 70%;
+    width: 100%;
+}
+
+.gallery li img{
+    list-style:none;
+    height: 500px;
+    width: 100%;
+}
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+	z-index: 3;
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #ccc;/*矢印の色*/
+    border-right: 2px solid #ccc;/*矢印の色*/
+    height: 25px;
+    width: 25px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+    left:2.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+    right:2.5%;
+    transform: rotate(45deg);
+}
+
+/*選択するサムネイル画像の設定*/
+
+.choice-btn{
+    height: 30%;
+    width: 100%;
+}
+
+.choice-btn li{
+	cursor: pointer;
+	outline: none;
+	background:#333;
+list-style:none;
+}
+
+.choice-btn li img{
+	opacity: 0.4;/*選択されていないものは透過40%*/
+    height: 200px;
+    width: 100%;
+}
+
+.choice-btn li.slick-current img{
+	opacity: 1;/*選択されているものは透過しない*/
+}
+
+footer{
+    height: 80px;
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-top{
+    text-decoration: none;
+    color: white;
+}
+
+.copy{
+    color: white;
+}
+
+
