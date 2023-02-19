@@ -163,6 +163,7 @@ section{
 @media screen  and (max-width: 700px){
     section{
         flex-direction: column;
+        margin: 50px auto 100px;
     }
 }
 
@@ -194,6 +195,18 @@ section{
     width: 70%;
 }
 
+@media screen  and (max-width: 700px){
+    #text{
+        order: 0;
+        width: auto;
+    }
+    #picture{
+        order: 1;
+        height: 90%;
+        width: auto;
+    }
+}
+
 .character{
     height: 50%;
     width: 100%;
@@ -209,6 +222,12 @@ section{
     font-size: 5vw;
     margin: 0 auto;
     color: #696969;
+}
+
+@media screen  and (max-width: 700px){
+    .character>h1{
+        font-size: 7vw;
+    }
 }
 
 /* .text-left{
